@@ -25,9 +25,7 @@
 
   <hr>
   <div class="container">
-    <ngx-loading [show]="loading"
-      [config]="{primaryColour: primaryColour, secondaryColour: secondaryColour, tertiaryColour: primaryColour, backdropBorderRadius: '3px'}"
-      [template]="loadingTemplate"></ngx-loading>
+    <ngx-loading [show]="loading"></ngx-loading>
 
     <div class="row">
       <div class="col-lg-4 col-md-6 col-lg-12" *ngFor="let data of data" style="margin: 30px;">
