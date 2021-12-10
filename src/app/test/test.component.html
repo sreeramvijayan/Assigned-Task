@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <hr>
+  <div class="row" style="display: flex;
+  justify-content: center;">
+    <h2>New York Times</h2>
+  </div>
+
+  <hr>
+  <hr>
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col">
+      <div class="mt-1 form-group">
+        <label class="text-left filter-label"> Select Date </label>
+        <input type="text" class="form-control" [bsConfig]="bsConfig" #dp="bsDatepicker" bsDatepicker
+          [(bsValue)]="datePickerValue" (bsValueChange)="onChangeDateRange($event)">
+      </div>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+
+  <hr>
+  <div class="container">
+    <ngx-loading [show]="loading"
+      [config]="{primaryColour: primaryColour, secondaryColour: secondaryColour, tertiaryColour: primaryColour, backdropBorderRadius: '3px'}"
+      [template]="loadingTemplate"></ngx-loading>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-lg-12" *ngFor="let data of data" style="margin: 30px;">
+        <article>
+          <h3>{{data.headline.main}}:</h3><br>
+          <small>({{data.byline.original ? data.byline.original : 'No Name'}})<span
+              style="float: right;">{{getDateUIFormat(data.pub_date)}}</span></small>
+        </article>
+        <hr>
+        <div class="row">
+          <div class="col">
+            <img [src]="img">
+          </div>
+          <div class="col">
+
+            <p>{{data.abstract}}</p>
+            <p>{{data.lead_paragraph}}</p>
+          </div>
+        </div>
+        <hr>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

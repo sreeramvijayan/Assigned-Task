@@ -1,0 +1,5 @@
+.custom-daterange-style.bs-datepicker {
+    position: absolute !important;
+    right: 0px !important;
+    width: max-content !important;
+}

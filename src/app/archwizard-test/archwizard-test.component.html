@@ -1,0 +1,49 @@
+<aw-wizard #wizard [navBarLayout]="'large-empty-symbols'">
+    <aw-wizard-step [stepTitle]="'Steptitle 1'">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+         <div class="form-group col-5">
+                      <label>First Name</label>
+                      <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+                      <!-- formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"  -->
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                      </div>
+                  </div>
+                
+      <div class="centered-content">
+        <div>
+          Content: Step 1
+        </div>
+  
+        <div class="btn-group">
+          <button type="submit" class="btn btn-secondary" awNextStep>Continue</button>
+        </div>
+   </div>
+  </form>
+    </aw-wizard-step>
+    <aw-wizard-step [stepTitle]="'Steptitle 2'">
+      <div class="centered-content">
+        <div>
+          Content: Step 2
+        </div>
+  
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+          <button type="button" class="btn btn-secondary" awNextStep>Continue</button>
+        </div>
+      </div>
+    </aw-wizard-step>
+    <aw-wizard-step [stepTitle]="'Steptitle 3'">
+      <div class="centered-content">
+        <div>
+          Content: Step 3
+        </div>
+  
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+          <button type="button" class="btn btn-secondary" awResetWizard>Reset</button>
+        </div>
+      </div>
+    </aw-wizard-step>
+  </aw-wizard>
+  
